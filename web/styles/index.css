@@ -37,18 +37,8 @@
     flex-direction: column;
 }
 
-#rightContent h2 {
-    font-size: 48px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700; 
-    color: var(--pink-500);
-    text-align: center;
-    
+#logo { 
     margin-bottom: 120px;
-}
-
-#rightContent h2 span {
-    color: var(--pink-300);
 }
 
 #rightContent a {
@@ -78,9 +68,11 @@
     margin-top: 36px;
 }
 
-#rightContainer img {
+#couple {
     position: absolute;
     right: 0;
     bottom: 0;
 }
+
+
 
