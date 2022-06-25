@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --black: #121214;
+    --white: #FFFFFF;
+    --gray-800: #1D1D21;
+    --gray-700: #404040;
+    --gray-600: #202024;
+    --pink-700: #F24976;
+    --pink-500: #F22E8A;
+    --pink-300: #F25C5C;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
