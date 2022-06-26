@@ -1,0 +1,127 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#leftContainer {
+    background: var(--black);
+    height: 100vh;
+    width: 55%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    margin-top: 200px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form img {
+    margin-bottom: 116px;
+}
+
+.containerInput {
+    background: var(--gray-600);
+    width: 413px;
+    height: 127px;
+    padding: 0 46px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.containerInput input {
+    background: transparent;
+    outline: none;
+    border: 0;
+    width: 100%;
+    
+    font-family: 'Itim', sans-serif;
+    font-size: 36px;
+    color: var(--gray-400); 
+}
+
+#lastInput {
+    margin-top: 28px;
+}
+
+form button {
+    margin-top: 55px;
+    background: linear-gradient(90deg, var(--green-300) 0%, var(--green-500) 42.71%);
+    width: 319px;
+    height: 94px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: 0;
+    border-radius: 21px;
+    
+    font-family: 'Itim', sans-serif;
+    font-size: 36px;
+    color: var(--white);
+    
+    transition: filter 0.2s;
+}
+
+form button:hover {
+    filter: brightness(0.8);
+}
+
+form a {
+    margin-top: 35px;
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: var(--white);
+    text-align: center;
+    
+    position: relative;
+    padding-bottom: 4px;
+    text-decoration: none;
+}
+
+form a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background: linear-gradient(90deg, var(--green-300) 0%, var(--green-500) 42.71%);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+form a:hover::after,
+form a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+}
+
+form a::after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+form a:hover::after,
+form a:focus::after{
+    transform: scale(1);
+}
+
+#rightContainer {
+    background: linear-gradient(180deg, var(--pink-500) 0%, var(--pink-300) 86.98%);
+    height: 100vh;
+    width: 45%;
+}
+
+

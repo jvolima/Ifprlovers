@@ -17,6 +17,10 @@
 -->
 <glassfish-web-app error-url="">
   <class-loader delegate="true"/>
+  <welcome-file-list>
+    <welcome-file>LoginController</welcome-file>
+    <welcome-file>faces/index.xhtm</welcome-file>
+  </welcome-file-list>
   <jsp-config>
     <property name="keepgenerated" value="true">
       <description>Keep a copy of the generated servlet class' java code.</description>
