@@ -15,7 +15,9 @@
     --pink-500: #F22E8A;
     --pink-300: #F25C5C;
     --green-500: #3A9453;
+    --green-400: #3A9353;
     --green-300: #9AEA5E;
+    --green-200: #96E65D;
 }
 
 a {
@@ -26,3 +28,8 @@ button {
     cursor: pointer;
 }
 
+.couple {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
