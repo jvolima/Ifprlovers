@@ -1,8 +1,11 @@
+<%-- 
+    Document   : userRegistration
+    Created on : 27/06/2022, 19:57:05
+    Author     : jvolima
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         <title>IFPRLOVERS | Cadastre-se</title>
@@ -31,7 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <span>Se torne um lover</span>
                     </div>
                 </div>
-                <form method="post" id="containerForm">
+                <form method="post" action="UserRegisterController" id="containerForm">
                     <div id="containerInputs">
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput">

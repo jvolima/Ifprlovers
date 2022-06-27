@@ -26,6 +26,15 @@ public class User {
         this.sexualOrientation = sexualOrientation;
         this.age = age;
     }
+     
+    public User(String name, String email, String password, String gender, String sexualOrientation, int age) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.sexualOrientation = sexualOrientation;
+        this.age = age;
+    }
 
     public int getId() {
         return id;
