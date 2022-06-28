@@ -29,17 +29,25 @@
     filter: brightness(0.8);
 }
 
+#editBackButton {
+    background: linear-gradient(92.42deg, #F22E8A 1.67%, #F25C5C 100.58%);
+}
+
 .buttonLabel {
     display: flex;
     align-items: center;
     justify-content: center;
     
     margin-left: 17px;
-    width: 162px;
+    width: 246px;
     height: 69px;
 
     background: linear-gradient(90deg, var(--green-300) 0%, var(--green-500) 42.71%);
     border-radius: 50px;
+}
+
+#editButtonLabel {
+    background: linear-gradient(90deg, var(--pink-500) 0%, var(--pink-300) 100%);
 }
 
 .buttonLabel span {
@@ -148,7 +156,7 @@ label {
     justify-content: center;
 }
 
-#submitButton {
+.submitButton {
     width: 281px;
     height: 81px;
 
@@ -167,8 +175,12 @@ label {
     transition: 0.2s;
 }
 
-#submitButton:hover {
+.submitButton:hover {
     filter: brightness(0.8);
+}
+
+#updateButton {
+    background: linear-gradient(90deg, var(--green-500) 0%, var(--green-300) 100%);
 }
 
 ::-ms-reveal {

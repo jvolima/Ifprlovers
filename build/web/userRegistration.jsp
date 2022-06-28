@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/registerAndUpdate.css" />
+        <link rel="stylesheet" href="./styles/registerAndEdit.css" />
     </head>
     <body>
         <div id="container">
@@ -24,7 +24,7 @@
                     <img src="./images/arrowLeft.svg" alt="Seta para a esquerda" />
                 </a>
                 <div class="buttonLabel">
-                    <span>Voltar</span>
+                    <span>Cadastro</span>
                 </div>
             </div>
             
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div id="containerButton">
-                        <button id="submitButton" type="submit">Cadastrar</button>
+                        <button class="submitButton" type="submit">Cadastrar</button>
                     </div>
                 </form>
             </div>

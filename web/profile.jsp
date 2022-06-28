@@ -1,6 +1,6 @@
 <%-- 
-    Document   : userRegistration
-    Created on : 27/06/2022, 19:57:05
+    Document   : profile
+    Created on : 27/06/2022, 21:56:39
     Author     : jvolima
 --%>
 
@@ -8,9 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>IFPRLOVERS | Cadastre-se</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>IFPRLOVERS | Perfil</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
@@ -20,18 +19,18 @@
         <div id="container">
             <img class="couple" src="./images/cople.png" alt="Couple" />
             <div id="header">
-                <a class="backButton" href="login.html">
+                <a class="backButton" id="editBackButton" href="index.html">
                     <img src="./images/arrowLeft.svg" alt="Seta para a esquerda" />
                 </a>
-                <div class="buttonLabel">
-                    <span>Cadastro</span>
+                <div class="buttonLabel" id="editButtonLabel">
+                    <span>Perfil</span>
                 </div>
             </div>
             
             <div id="content">
                 <div id="containerFormLabel">
                     <div id="formLabel">
-                        <span>Se torne um lover</span>
+                        <span>Atualizar Perfil</span>
                     </div>
                 </div>
                 <form method="post" action="UserRegisterController" id="containerForm">
@@ -66,7 +65,7 @@
                         </div>
                     </div>
                     <div id="containerButton">
-                        <button class="submitButton" type="submit">Cadastrar</button>
+                        <button class="submitButton" id="updateButton" type="submit">Salvar Alterações</button>
                     </div>
                 </form>
             </div>
