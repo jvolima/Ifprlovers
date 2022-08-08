@@ -13,8 +13,9 @@ import java.sql.SQLException;
  * @author jvolima
  */
 public class UserModel {
+    UserDAO dao = new UserDAO();
+    
     public String registerUser(User u) throws SQLException {
-        UserDAO dao = new UserDAO();
         User userAlreadyExists = dao.findUserByEmail(u.getEmail());
         
         if(userAlreadyExists != null) {
@@ -23,5 +24,11 @@ public class UserModel {
         
         dao.register(u);
         return "Cadastro realizado";
+    }
+    
+    public User findUserByEmail(String email) throws SQLException {
+        User u = dao.findUserByEmail(email);
+        
+        return u;
     }
 }

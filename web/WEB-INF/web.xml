@@ -12,7 +12,7 @@
     
     <welcome-file-list>
         <welcome-file>
-            login.html
+            LoginController
         </welcome-file>
     </welcome-file-list>
 </web-app>

@@ -19,7 +19,7 @@
         <div id="container">
             <img class="couple" src="./images/cople.png" alt="Couple" />
             <div id="header">
-                <a class="backButton" id="editBackButton" href="index.html">
+                <a class="backButton" id="editBackButton" href="HomeController">
                     <img src="./images/arrowLeft.svg" alt="Seta para a esquerda" />
                 </a>
                 <div class="buttonLabel" id="editButtonLabel">
@@ -33,7 +33,7 @@
                         <span>Atualizar Perfil</span>
                     </div>
                 </div>
-                <form method="post" action="UserRegisterController" id="containerForm">
+                <form method="post" action="UpdateUserController" id="containerForm">
                     <div id="containerInputs">
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput">

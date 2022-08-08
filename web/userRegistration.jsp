@@ -20,7 +20,7 @@
         <div id="container">
             <img class="couple" src="./images/cople.png" alt="Couple" />
             <div id="header">
-                <a class="backButton" href="login.html">
+                <a class="backButton" href="LoginController">
                     <img src="./images/arrowLeft.svg" alt="Seta para a esquerda" />
                 </a>
                 <div class="buttonLabel">

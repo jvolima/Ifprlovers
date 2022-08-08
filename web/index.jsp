@@ -1,8 +1,11 @@
+<%-- 
+    Document   : index
+    Created on : 07/08/2022, 20:30:49
+    Author     : jvolima
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         <title>IFPRLOVERS | Início</title>
@@ -23,7 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <div id="rightContainer">
                 <div id="rightContent">
                     <img id="logo" src="./images/logo.svg" alt="Logo" />
-                    <a href="profile.jsp">Perfil</a>
+                    <a href="ProfileController">Perfil</a>
                     <a id="lastButton" href="">Achar Lover</a>
                 </div>   
                 <img class="couple" src="./images/cople.png" alt="Couple" />

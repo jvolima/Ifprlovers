@@ -1,8 +1,11 @@
+<%-- 
+    Document   : login
+    Created on : 07/08/2022, 20:29:27
+    Author     : jvolima
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         <title>IFPRLOVERS | Login</title>
@@ -16,7 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <div id="container">
             <div id="leftContainer">
-                <form method="post">
+                <form method="post" action="LoginController">
                     <img src="./images/logoLogin.svg" alt="Logo login" />
                     <div class="containerInput">
                         <input type="email" name="email" placeholder="Email" />
