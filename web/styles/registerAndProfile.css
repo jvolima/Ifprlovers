@@ -97,6 +97,16 @@
     padding: 0 30px;
 }
 
+#containerFormEdit {
+    margin-top: 8px;
+    width: 681px;
+    height: 680px;
+
+    background: var(--gray-600);
+    border-radius: 34px;
+    padding: 0 30px;
+}
+
 #containerInputs {
     margin-top: 90px;
 }
@@ -186,3 +196,4 @@ label {
 ::-ms-reveal {
   filter: invert(100%);
 }
+

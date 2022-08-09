@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/registerAndEdit.css" />
+        <link rel="stylesheet" href="./styles/registerAndProfile.css" />
     </head>
     <body>
         <div id="container">
@@ -33,34 +33,30 @@
                         <span>Atualizar Perfil</span>
                     </div>
                 </div>
-                <form method="post" action="UpdateUserController" id="containerForm">
+                <form method="post" action="UpdateUserController" id="containerFormEdit">
                     <div id="containerInputs">
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput">
                                 <label>Nome</label>
-                                <input class="input" type="text" name="name" />
+                                <input class="input" type="text" name="name" value="${user.name}" />
                             </div>
                             <div class="smallerInput">
                                 <label>Idade</label>
-                                <input class="input" type="number" name="age" />
+                                <input class="input" type="number" name="age" value="${user.age}" />
                             </div>      
                         </div>
                         <div class="containerInput">
                             <label>Email</label>
-                            <input class="input" type="email" name="email" />
-                        </div>
-                        <div class="containerInput">
-                            <label>Senha</label>
-                            <input class="input" type="password" name="password" />
+                            <input class="input" disabled="true" type="email" name="email" value="${user.email}" />
                         </div>
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput"> 
                                 <label>Orientação Sexual</label>
-                                <input class="input" type="text" name="sexual_orientation" />
+                                <input class="input" type="text" name="sexual_orientation" value="${user.sexualOrientation}" />
                             </div>
                             <div class="smallerInput">
                                 <label>Sexo</label>
-                                <input class="input" type="text" name="gender" />
+                                <input class="input" type="text" name="gender" value="${user.gender}" />
                             </div> 
                         </div>
                     </div>

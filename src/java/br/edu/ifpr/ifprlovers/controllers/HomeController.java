@@ -5,7 +5,6 @@
 package br.edu.ifpr.ifprlovers.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -25,17 +24,19 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         
-        if (session != null && session.getAttribute("authenticated") != null
-            && (boolean)session.getAttribute("authenticated") == true) {
+        if (session != null && session.getAttribute("authenticated") != null) {       
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else {
             Cookie[] cookies = request.getCookies();
-            
+
             if (cookies != null) {
                 for (Cookie cookie: cookies) {
                     if ("keepLogged".equals(cookie.getName())) {
+                        String email = cookie.getValue();
+                            
                         session = request.getSession(true);
-                        session.setAttribute("authenticated", true);
+                        session.setAttribute("authenticated", email);
+                         
                         request.getRequestDispatcher("index.jsp").forward(request, response);
                         break;
                     }

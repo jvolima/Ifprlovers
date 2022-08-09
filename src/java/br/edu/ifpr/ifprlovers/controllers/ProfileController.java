@@ -4,8 +4,13 @@
  */
 package br.edu.ifpr.ifprlovers.controllers;
 
+import br.edu.ifpr.ifprlovers.entities.User;
+import br.edu.ifpr.ifprlovers.models.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -25,17 +30,37 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         
-        if (session != null && session.getAttribute("authenticated") != null
-            && (boolean)session.getAttribute("authenticated") == true) {
+        if (session != null && session.getAttribute("authenticated") != null) {
+            String email = (String) session.getAttribute("authenticated");
+            
+            UserModel model = new UserModel();
+            try {
+                User user = model.findUserByEmail(email);
+                request.setAttribute("user", user);
+            } catch (SQLException ex) {
+                Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             request.getRequestDispatcher("profile.jsp").forward(request, response);
         } else {
             Cookie[] cookies = request.getCookies();
-            
+
             if (cookies != null) {
                 for (Cookie cookie: cookies) {
                     if ("keepLogged".equals(cookie.getName())) {
-                        session = request.getSession(true);
-                        session.setAttribute("authenticated", true);
+                        String email = cookie.getValue();
+                        UserModel model = new UserModel();
+                        
+                        try {
+                            User user = model.findUserByEmail(email);
+                            request.setAttribute("user", user);
+                            
+                            session = request.getSession(true);
+                            session.setAttribute("authenticated", user.getEmail());
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                         
                         request.getRequestDispatcher("profile.jsp").forward(request, response);
                         break;
                     }
