@@ -4,6 +4,7 @@
  */
 package br.edu.ifpr.ifprlovers.controllers;
 
+import br.edu.ifpr.ifprlovers.daos.UserDAO;
 import br.edu.ifpr.ifprlovers.entities.User;
 import br.edu.ifpr.ifprlovers.models.UserModel;
 import java.io.IOException;
@@ -74,6 +75,31 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
+        String name = request.getParameter("name");
+        int age = Integer.parseInt(request.getParameter("age"));
+        String email = request.getParameter("email");
+        String sexual_orientation = request.getParameter("sexual_orientation");
+        String gender = request.getParameter("gender");
+        
+        System.out.println(email);
+        
+        UserModel model = new UserModel();
+        try {
+            User u = model.findUserByEmail(email);
+            u.setName(name);
+            u.setAge(age);
+            u.setSexualOrientation(sexual_orientation);
+            u.setGender(gender);
+            
+            UserDAO dao = new UserDAO();
+            dao.updateUser(u);
+            
+            response.sendRedirect("HomeController");
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

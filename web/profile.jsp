@@ -33,7 +33,7 @@
                         <span>Atualizar Perfil</span>
                     </div>
                 </div>
-                <form method="post" action="UpdateUserController" id="containerFormEdit">
+                <form method="post" action="ProfileController" id="containerFormEdit">
                     <div id="containerInputs">
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput">
@@ -47,7 +47,7 @@
                         </div>
                         <div class="containerInput">
                             <label>Email</label>
-                            <input class="input" disabled="true" type="email" name="email" value="${user.email}" />
+                            <input class="input" readonly="true" type="email" name="email" value="${user.email}" />
                         </div>
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput"> 

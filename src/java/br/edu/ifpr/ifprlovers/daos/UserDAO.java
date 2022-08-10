@@ -58,4 +58,22 @@ public class UserDAO {
         
         return u;
     }
+    
+    public void updateUser(User u) throws SQLException {
+        String sql= "UPDATE USERS SET NAME = ?, AGE = ?, GENDER = ?, SEXUAL_ORIENTATION = ? WHERE ID = ?";
+        
+        Connection connection = new ConnectionFactory().getConnection();
+        
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, u.getName());
+        stmt.setInt(2, u.getAge());
+        stmt.setString(3, u.getGender());
+        stmt.setString(4, u.getSexualOrientation());
+        stmt.setInt(5, u.getId());
+        
+        stmt.execute();
+        
+        stmt.close();
+        connection.close();
+    }
 }

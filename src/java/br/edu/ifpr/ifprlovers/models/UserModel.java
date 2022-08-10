@@ -31,4 +31,8 @@ public class UserModel {
         
         return u;
     }
+    
+    public void updateUser(User u) throws SQLException {
+        dao.updateUser(u);
+    }
 }
