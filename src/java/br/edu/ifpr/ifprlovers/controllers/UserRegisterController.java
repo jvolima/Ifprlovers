@@ -49,7 +49,7 @@ public class UserRegisterController extends HttpServlet {
             String message = model.registerUser(u);
             if(message.equals("Erro ao cadastrar novo usuário, email já está sendo usado")) {
                 //informar erro ao usuário
-                response.sendRedirect("userRegistration.jsp");
+                response.sendRedirect("WEB-INF/userRegistration.jsp");
             } else {
                 response.sendRedirect("LoginController");
             }        

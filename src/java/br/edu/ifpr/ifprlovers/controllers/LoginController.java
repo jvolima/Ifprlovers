@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession(false);
         
         if (session != null && session.getAttribute("authenticated") != null) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
         } else {
             Cookie[] cookies = request.getCookies();
 
@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
                         session = request.getSession(true);
                         session.setAttribute("authenticated", email);
                      
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
                         break;
                     }
                 }
@@ -70,10 +70,10 @@ public class LoginController extends HttpServlet {
                 cookie.setMaxAge(60 * 60 * 24 * 30); //calculo referente a 30 dias
                 response.addCookie(cookie);
                 
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("WEB-INF/index.jsp");
             } else {
                 // Mostrar erro na tela
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("WEB-INF/login.jsp");
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

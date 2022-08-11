@@ -25,7 +25,7 @@ public class HomeController extends HttpServlet {
         HttpSession session = request.getSession(false);
         
         if (session != null && session.getAttribute("authenticated") != null) {       
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
         } else {
             Cookie[] cookies = request.getCookies();
 
@@ -37,13 +37,13 @@ public class HomeController extends HttpServlet {
                         session = request.getSession(true);
                         session.setAttribute("authenticated", email);
                          
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
                         break;
                     }
                 }
             }
             
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("WEB-INF/login.jsp");
         }
     }
 

@@ -28,7 +28,7 @@
                         <input type="password" name="password" placeholder="Senha" />
                     </div>
                     <button type="submit">Login</button>
-                    <a href="userRegistration.jsp">Realizar cadastro</a>
+                    <a href="WEB-INF/userRegistration.jsp">Realizar cadastro</a>
                 </form>
             </div>
             <div id="rightContainer">

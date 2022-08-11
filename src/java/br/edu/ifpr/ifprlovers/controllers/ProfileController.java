@@ -42,7 +42,7 @@ public class ProfileController extends HttpServlet {
                 Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
         } else {
             Cookie[] cookies = request.getCookies();
 
@@ -62,13 +62,13 @@ public class ProfileController extends HttpServlet {
                             Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                          
-                        request.getRequestDispatcher("profile.jsp").forward(request, response);
+                        request.getRequestDispatcher("WEB-INF/profile.jsp").forward(request, response);
                         break;
                     }
                 }
             }
             
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("WEB-INF/login.jsp");
         }
     }
 
