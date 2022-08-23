@@ -27,7 +27,7 @@
                 <div id="rightContent">
                     <img id="logo" src="./images/logo.svg" alt="Logo" />
                     <a href="ProfileController">Perfil</a>
-                    <a id="lastButton" href="">Achar Lover</a>
+                    <a id="lastButton" href="FindLoverController">Achar Lover</a>
                 </div>   
                 <img class="couple" src="./images/cople.png" alt="Couple" />
             </div>

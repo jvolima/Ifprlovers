@@ -1,0 +1,126 @@
+#container {
+    width: 100vw;
+    height: 100vh;
+    background: var(--black); 
+}
+
+#backButton {
+    position: absolute;
+    top: -40px;
+    left: -45px;
+    
+    width: 175px;
+    height: 175px;
+    background: linear-gradient(180deg, var(--green-500) 0%, var(--green-300) 100%);
+    border: 0;
+    border-radius: 175px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    text-decoration: none;
+}
+
+header {
+    padding-top: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerSelectLover {
+    width: 100%;
+    margin-top: 86px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerSelectLover h1 {
+    font-family: 'Itim', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--white);
+}
+
+#loverAndPercentage {
+    margin-top: 66px;
+    display: flex;
+    align-items: center;
+    gap: 140px;
+}
+
+.loverCard {
+    background: var(--gray-600);
+    border-radius: 16px;
+    padding: 12px;
+}
+
+.loverCardImage {
+    background: var(--gray-800);
+    border-radius: 16px;
+    width: 200px;
+    height: 174px;
+}
+
+.loverCardNameAndAge {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.loverCardNameContainer {
+    background: var(--gray-800);
+    border-radius: 16px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loverCardNameContainer span {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    color: var(--white);
+}
+
+.loverCardAgeContainer {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+    background: var(--pink-300);
+}
+
+.loverCardAgeContainer span {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    color: var(--white);
+}
+
+#heartContainer {
+    width: 139px;
+    height: 130px;
+    background-image: url("heart.svg");
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#heartContainer span {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 32px;
+    text-align: center;
+    color: var(--white);
+}

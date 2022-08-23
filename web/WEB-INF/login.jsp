@@ -20,7 +20,7 @@
         <div id="container">
             <div id="leftContainer">
                 <form method="post" action="LoginController">
-                    <img src="./images/logoLogin.svg" alt="Logo login" />
+                    <img src="./images/logoLogin.svg" alt="Logo ifprlovers" />
                     <div class="containerInput">
                         <input type="email" name="email" placeholder="Email" />
                     </div>
