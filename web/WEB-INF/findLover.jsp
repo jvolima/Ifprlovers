@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/findLover.css" />
+        <link rel="stylesheet" href="./styles/find.css" />
     </head>
     <body>
         <div id="container">
@@ -27,37 +28,61 @@
             <div id="containerSelectLover">
                 <h1>Selecione seu Lover</h1>
                 
-                <div id="loverAndPercentage">
-                    <div class="loverCard">
-                        <div class="loverCardImage">
-                            
-                        </div>
-                        <div class="loverCardNameAndAge">
-                            <div class="loverCardNameContainer">
-                                <span>João Victor Ramalho Alves</span>
+                <form method="post" action="FindLoverController">  
+                    <div id="loverAndPercentage">
+                        <div class="loverCard">
+                            <div class="loverCardImage">
+
                             </div>
-                            <div class="loverCardAgeContainer"> 
-                                <span>18</span>
+                            <div class="loverCardNameAndAge">
+                                <div class="loverCardNameContainer">
+                                    <span>${user.name}</span>
+                                </div>
+                                <div class="loverCardAgeContainer"> 
+                                    <span>${user.age}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="heartContainer">
+                            <span>?</span>
+                        </div>
+
+                        <div class="loverCard">
+                            <div class="loverCardImage">
+
+                            </div>
+                            <div class="loverCardNameAndAge">
+                                <div class="loverCardNameContainer">
+                                    <span>${lover.name}</span>
+                                </div>
+                                <div class="loverCardAgeContainer"> 
+                                    <span>${lover.age}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div id="heartContainer">
-                        <span>?</span>
+                         
+                    <div id="buttonTest">
+                        <button type="submit">Testar!</button>
                     </div>
-                    
-                    <div class="loverCard">
-                        <div class="loverCardImage">
+                </form>
                             
-                        </div>
-                        <div class="loverCardNameAndAge">
-                            <div class="loverCardNameContainer">
-                                <span>João Vitor Lima</span>
-                            </div>
-                            <div class="loverCardAgeContainer"> 
-                                <span>17</span>
-                            </div>
-                        </div>
+                <div id="containerLovers">
+                    <div id="contentLovers">
+                        <c:forEach var="loverToSelect" varStatus="status" items="${lovers}">
+                            <a class="loverCardSmall" href="SelectLoverController?loverEmail=${loverToSelect.email}">
+                                <div class="loverCardImageSmall" style="background-image: url(https://github.com/jvolima.png); background-position: center; background-size: cover"></div>
+                                <div class="loverCardNameAndAgeSmall">
+                                    <div class="loverCardNameContainerSmall">
+                                        <span>${loverToSelect.name}</span>
+                                    </div>
+                                    <div class="loverCardAgeContainerSmall">
+                                        <span>${loverToSelect.age}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

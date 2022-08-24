@@ -43,7 +43,28 @@ public class HomeController extends HttpServlet {
                 }
             }
             
-            response.sendRedirect("WEB-INF/login.jsp");
+            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+        }
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        session.invalidate();
+        
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie: cookies) {
+                if ("keepLogged".equals(cookie.getName())) {
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                         
+                    response.sendRedirect("LoginController");
+                    break;
+                }
+            }
         }
     }
 

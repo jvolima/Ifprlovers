@@ -7,6 +7,7 @@ package br.edu.ifpr.ifprlovers.models;
 import br.edu.ifpr.ifprlovers.daos.UserDAO;
 import br.edu.ifpr.ifprlovers.entities.User;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,5 +35,11 @@ public class UserModel {
     
     public void updateUser(User u) throws SQLException {
         dao.updateUser(u);
+    }
+    
+    public ArrayList<User> listAll() throws SQLException {
+        ArrayList<User> users = dao.listAll();
+        
+        return users;
     }
 }

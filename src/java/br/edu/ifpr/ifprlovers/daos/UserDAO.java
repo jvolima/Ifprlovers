@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -75,5 +76,30 @@ public class UserDAO {
         
         stmt.close();
         connection.close();
+    }
+    
+    public ArrayList<User> listAll() throws SQLException {
+        String sql = "SELECT ID, NAME, EMAIL, GENDER, SEXUAL_ORIENTATION, AGE FROM USERS";
+        
+        Connection connection = new ConnectionFactory().getConnection();
+        
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        
+        ArrayList<User> users = new ArrayList();
+        
+        while(rs.next()) {
+            int id = rs.getInt("ID");
+            String name = rs.getString("NAME");
+            String email = rs.getString("EMAIL");
+            String gender = rs.getString("GENDER");
+            String sexualOrientation = rs.getString("SEXUAL_ORIENTATION");
+            int age = rs.getInt("AGE");
+            
+            User u = new User(id, name, email, gender, sexualOrientation, age);
+            users.add(u);
+        }
+        
+        return users;
     }
 }

@@ -26,6 +26,15 @@ public class User {
         this.sexualOrientation = sexualOrientation;
         this.age = age;
     }
+    
+    public User(int id, String name, String email, String gender, String sexualOrientation, int age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+        this.sexualOrientation = sexualOrientation;
+        this.age = age;
+    }
      
     public User(String name, String email, String password, String gender, String sexualOrientation, int age) {
         this.name = name;

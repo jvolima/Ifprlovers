@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet {
                 }
             }
             
-            response.sendRedirect("login.jsp");
+            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
         }
     }
 
@@ -70,10 +70,10 @@ public class LoginController extends HttpServlet {
                 cookie.setMaxAge(60 * 60 * 24 * 30); //calculo referente a 30 dias
                 response.addCookie(cookie);
                 
-                response.sendRedirect("WEB-INF/index.jsp");
+                request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
             } else {
                 // Mostrar erro na tela
-                response.sendRedirect("WEB-INF/login.jsp");
+                request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

@@ -68,7 +68,7 @@ public class ProfileController extends HttpServlet {
                 }
             }
             
-            response.sendRedirect("WEB-INF/login.jsp");
+            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
         }
     }
 

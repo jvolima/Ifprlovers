@@ -28,6 +28,11 @@
                     <img id="logo" src="./images/logo.svg" alt="Logo" />
                     <a href="ProfileController">Perfil</a>
                     <a id="lastButton" href="FindLoverController">Achar Lover</a>
+                    <form method="post" action="HomeController">
+                        <button type="submit">
+                            Logout
+                        </button>
+                    </form>
                 </div>   
                 <img class="couple" src="./images/cople.png" alt="Couple" />
             </div>

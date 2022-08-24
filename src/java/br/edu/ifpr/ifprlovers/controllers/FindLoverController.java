@@ -4,8 +4,14 @@
  */
 package br.edu.ifpr.ifprlovers.controllers;
 
+import br.edu.ifpr.ifprlovers.entities.User;
+import br.edu.ifpr.ifprlovers.models.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -27,6 +33,37 @@ public class FindLoverController extends HttpServlet {
         HttpSession session = request.getSession(false);
         
         if (session != null && session.getAttribute("authenticated") != null) {       
+            String email = (String) session.getAttribute("authenticated");
+            
+            UserModel model = new UserModel();
+            
+            try {
+                User user = model.findUserByEmail(email);
+                request.setAttribute("user", user);
+                
+                String loverEmail = request.getParameter("loverEmail");
+                if (loverEmail != null) {
+                    User lover = model.findUserByEmail(loverEmail);
+                    request.setAttribute("lover", lover);
+                }
+                
+                ArrayList<User> lovers = model.listAll();
+                
+                int index = 0;
+                
+                for(User u: lovers) {
+                    if (u.getEmail().equals(user.getEmail())) {
+                        index = lovers.indexOf(u);
+                    }
+                }
+                
+                lovers.remove(index);
+                
+                request.setAttribute("lovers", lovers);
+            } catch (SQLException ex) {
+                Logger.getLogger(FindLoverController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             request.getRequestDispatcher("WEB-INF/findLover.jsp").forward(request, response);
         } else {
             Cookie[] cookies = request.getCookies();
@@ -35,17 +72,32 @@ public class FindLoverController extends HttpServlet {
                 for (Cookie cookie: cookies) {
                     if ("keepLogged".equals(cookie.getName())) {
                         String email = cookie.getValue();
+                        UserModel model = new UserModel();
+                        
+                        User user;
+                        try {
+                            user = model.findUserByEmail(email);
+                            request.setAttribute("user", user);
                             
-                        session = request.getSession(true);
-                        session.setAttribute("authenticated", email);
-                         
+                            String loverEmail = request.getParameter("loverEmail");
+                            if (loverEmail != null) {
+                                User lover = model.findUserByEmail(loverEmail);
+                                request.setAttribute("lover", lover);
+                            }
+                            
+                            session = request.getSession(true);
+                            session.setAttribute("authenticated", email);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(FindLoverController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                                  
                         request.getRequestDispatcher("WEB-INF/findLover.jsp").forward(request, response);
                         break;
                     }
                 }
             }
             
-            response.sendRedirect("WEB-INF/login.jsp");
+            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
         }
     }
 

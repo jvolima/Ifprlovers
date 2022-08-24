@@ -7,7 +7,6 @@ package br.edu.ifpr.ifprlovers.controllers;
 import br.edu.ifpr.ifprlovers.entities.User;
 import br.edu.ifpr.ifprlovers.models.UserModel;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +26,7 @@ public class UserRegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        request.getRequestDispatcher("WEB-INF/userRegistration.jsp").forward(request, response);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class UserRegisterController extends HttpServlet {
             String message = model.registerUser(u);
             if(message.equals("Erro ao cadastrar novo usuário, email já está sendo usado")) {
                 //informar erro ao usuário
-                response.sendRedirect("WEB-INF/userRegistration.jsp");
+                request.getRequestDispatcher("WEB-INF/userRegistration.jsp").forward(request, response);
             } else {
                 response.sendRedirect("LoginController");
             }        
