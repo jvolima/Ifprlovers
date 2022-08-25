@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Inter:wght@700&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/home.css" />
+        <link rel="stylesheet" href="./styles/homePage.css" />
     </head>
     <body>
         <div id="container">

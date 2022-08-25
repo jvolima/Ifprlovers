@@ -1,0 +1,10 @@
+CREATE TABLE Users(
+  id INT NOT NULL PRIMARY KEY GENERATED ALWAYS 
+    AS IDENTITY (START WITH 1, increment by 1),
+  name varchar(200) NOT NULL,
+  email varchar(200) NOT NULL,
+  password varchar(200) NOT NULL,
+  age int NOT NULL,
+  gender varchar(200) NOT NULL,
+  sexual_orientation varchar(200) NOT NULL
+);

@@ -80,7 +80,7 @@ public class SelectLoverController extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(SelectLoverController.class.getName()).log(Level.SEVERE, null, ex);
         }
-             
+                
         response.sendRedirect("FindLoverController?loverEmail=" + loverEmail + "&percentage=" + percentageToBeAMatch);
     }
 
