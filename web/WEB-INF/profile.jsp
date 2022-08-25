@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/registerAndProfile.css" />
+        <link rel="stylesheet" href="./styles/profileAndRegister.css" />
     </head>
     <body>
         <div id="container">

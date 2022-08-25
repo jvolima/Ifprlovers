@@ -15,7 +15,39 @@ public class User {
     private String password;
     private String gender;
     private String sexualOrientation;
+    private String image_url;
     private int age;
+    
+    public User(int id, String name, String email, String password, String gender, String sexualOrientation, int age, String image_url) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.sexualOrientation = sexualOrientation;
+        this.age = age;
+        this.image_url = image_url;
+    }
+    
+    public User(int id, String name, String email, String gender, String sexualOrientation, int age, String image_url) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+        this.sexualOrientation = sexualOrientation;
+        this.age = age;
+        this.image_url = image_url;
+    }
+    
+    public User(String name, String email, String password, String gender, String sexualOrientation, int age, String image_url) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.sexualOrientation = sexualOrientation;
+        this.age = age;
+        this.image_url = image_url;
+    }
     
     public User(int id, String name, String email, String password, String gender, String sexualOrientation, int age) {
         this.id = id;
@@ -95,5 +127,13 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+    
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

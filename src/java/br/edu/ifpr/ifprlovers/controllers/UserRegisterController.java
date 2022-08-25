@@ -36,12 +36,13 @@ public class UserRegisterController extends HttpServlet {
         
         String name = request.getParameter("name");
         String email = request.getParameter("email");
+        String image_url = request.getParameter("image_url");
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         String sexualOrientation = request.getParameter("sexual_orientation");
         int age = Integer.parseInt(request.getParameter("age"));
         
-        User u = new User(name, email, password, gender, sexualOrientation, age);
+        User u = new User(name, email, password, gender, sexualOrientation, age, image_url);
         
         UserModel model = new UserModel();
         

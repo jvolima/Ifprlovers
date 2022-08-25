@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/registerAndProfile.css" />
+        <link rel="stylesheet" href="./styles/profileAndRegister.css" />
     </head>
     <body>
         <div id="container">
@@ -53,6 +53,10 @@
                         <div class="containerInput">
                             <label>Senha</label>
                             <input class="input" type="password" name="password" />
+                        </div>
+                        <div class="containerInput">
+                            <label>Link do seu avatar</label>
+                            <input class="input" type="text" name="image_url" />
                         </div>
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput"> 

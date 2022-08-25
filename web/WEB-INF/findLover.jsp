@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Itim&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/global.css" />
-        <link rel="stylesheet" href="./styles/find.css" />
+        <link rel="stylesheet" href="./styles/loverFind.css" />
     </head>
     <body>
         <div id="container">
@@ -31,7 +31,7 @@
                 <form method="post" action="SelectLoverController">  
                     <div id="loverAndPercentage">
                         <div class="loverCard">
-                            <div class="loverCardImage">
+                            <div class="loverCardImage" style="background-image: url(${user.image_url}); background-position: center; background-size: cover">
 
                             </div>
                             <div class="loverCardNameAndAge">
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="loverCard">
-                            <div class="loverCardImage">
+                            <div class="loverCardImage" style="background-image: url(${lover.image_url}); background-position: center; background-size: cover">
 
                             </div>
                             <div class="loverCardNameAndAge">
@@ -74,8 +74,10 @@
                 <div id="containerLovers">
                     <div id="contentLovers">
                         <c:forEach var="loverToSelect" varStatus="status" items="${lovers}">
-                            <a class="loverCardSmall" href="SelectLoverController?loverEmail=${loverToSelect.email}">
-                                <div class="loverCardImageSmall"></div>
+                            <a class="loverCardSmall ${lover.email == loverToSelect.email ? "selected" : ""}" href="SelectLoverController?loverEmail=${loverToSelect.email}">
+                                <div class="loverCardImageSmall" style="background-image: url(${loverToSelect.image_url}); background-position: center; background-size: cover">
+                                    
+                                </div>
                                 <div class="loverCardNameAndAgeSmall">
                                     <div class="loverCardNameContainerSmall">
                                         <span>${loverToSelect.name}</span>
@@ -91,4 +93,6 @@
             </div>
         </div>
     </body>
+    
+    <script src=""></script>
 </html>
