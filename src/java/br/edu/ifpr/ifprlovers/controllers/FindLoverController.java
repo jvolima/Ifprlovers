@@ -45,8 +45,7 @@ public class FindLoverController extends HttpServlet {
                 String stringPercentage = request.getParameter("percentage");
                 
                 if (stringPercentage != null) {
-                    float percentage = Float.parseFloat(stringPercentage);
-                    request.setAttribute("percentage", percentage);
+                    request.setAttribute("percentage", stringPercentage + "%");
                 }
                 
                 if (loverEmail != null) {

@@ -45,7 +45,7 @@ public class SelectLoverController extends HttpServlet {
         
         UserModel model = new UserModel();
         
-        float percentageToBeAMatch = 0;
+        int percentageToBeAMatch = 0;
         
         try {
             User loverSelected = model.findUserByEmail(loverEmail);
