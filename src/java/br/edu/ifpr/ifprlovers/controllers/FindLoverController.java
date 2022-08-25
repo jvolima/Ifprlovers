@@ -26,7 +26,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "FindLoverController", urlPatterns = {"/FindLoverController"})
 public class FindLoverController extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,6 +41,14 @@ public class FindLoverController extends HttpServlet {
                 request.setAttribute("user", user);
                 
                 String loverEmail = request.getParameter("loverEmail");
+                
+                String stringPercentage = request.getParameter("percentage");
+                
+                if (stringPercentage != null) {
+                    float percentage = Float.parseFloat(stringPercentage);
+                    request.setAttribute("percentage", percentage);
+                }
+                
                 if (loverEmail != null) {
                     User lover = model.findUserByEmail(loverEmail);
                     request.setAttribute("lover", lover);
@@ -111,4 +118,5 @@ public class FindLoverController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

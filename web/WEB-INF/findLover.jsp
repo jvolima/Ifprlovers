@@ -28,7 +28,7 @@
             <div id="containerSelectLover">
                 <h1>Selecione seu Lover</h1>
                 
-                <form method="post" action="FindLoverController">  
+                <form method="post" action="SelectLoverController">  
                     <div id="loverAndPercentage">
                         <div class="loverCard">
                             <div class="loverCardImage">
@@ -45,7 +45,7 @@
                         </div>
 
                         <div id="heartContainer">
-                            <span>?</span>
+                            <span>${percentage != null ? percentage : "?"}</span>
                         </div>
 
                         <div class="loverCard">
@@ -60,6 +60,9 @@
                                     <span>${lover.age}</span>
                                 </div>
                             </div>
+                                
+                            <input type="hidden" name="emailUser" value="${user.email}" />
+                            <input type="hidden" name="emailLoverSelected" value="${lover.email}" />
                         </div>
                     </div>
                          

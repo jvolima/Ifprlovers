@@ -68,6 +68,31 @@
     margin-top: 36px;
 }
 
+form button {
+    margin-top: 40px;
+    width: 200px;
+    height: 80px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: var(--pink-500);
+    border-radius: 12px;
+    border: 0;
+    
+    font-family: 'Itim', sans-serif;
+    font-size: 24px;
+    color: var(--white);
+    
+    transition: filter 0.2s;
+}
+
+form button:hover {
+    filter: brightness(0.8);
+}
+
+
 
 
 
