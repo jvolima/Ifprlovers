@@ -75,7 +75,7 @@
                     <div id="contentLovers">
                         <c:forEach var="loverToSelect" varStatus="status" items="${lovers}">
                             <a class="loverCardSmall" href="SelectLoverController?loverEmail=${loverToSelect.email}">
-                                <div class="loverCardImageSmall" style="background-image: url(https://github.com/jvolima.png); background-position: center; background-size: cover"></div>
+                                <div class="loverCardImageSmall"></div>
                                 <div class="loverCardNameAndAgeSmall">
                                     <div class="loverCardNameContainerSmall">
                                         <span>${loverToSelect.name}</span>
