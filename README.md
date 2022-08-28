@@ -15,7 +15,8 @@
 - HTML
 - CSS
 
-## Aprendizados novos
+## Habilidades desenvolvidas
+- Padrão MVC
 - Utilizar cookies e sessão com o JavaWeb
 
 ## Design da aplicação
