@@ -11,16 +11,19 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author jvolima
  */
 @WebServlet(name = "UserRegisterController", urlPatterns = {"/UserRegisterController"})
+@MultipartConfig(maxFileSize = 8 * 1024 * 1024 * 5/*5MB*/)
 public class UserRegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,13 +39,20 @@ public class UserRegisterController extends HttpServlet {
         
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String image_url = request.getParameter("image_url");
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         String sexualOrientation = request.getParameter("sexual_orientation");
         int age = Integer.parseInt(request.getParameter("age"));
         
-        User u = new User(name, email, password, gender, sexualOrientation, age, image_url);
+        Part part = request.getPart("image");
+        String contentType = part.getContentType();
+        
+        byte[] image = new byte[part.getInputStream().available()];
+        
+        part.getInputStream().read(image);
+        
+        User u = new User(name, email, password, gender, 
+                sexualOrientation, age, contentType, image);
         
         UserModel model = new UserModel();
         

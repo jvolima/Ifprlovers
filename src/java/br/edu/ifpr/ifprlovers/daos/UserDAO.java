@@ -18,7 +18,9 @@ import java.util.ArrayList;
  */
 public class UserDAO {
     public void register(User u) throws SQLException {
-        String sql = "INSERT INTO USERS (NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE, IMAGE_URL) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO USERS (NAME, EMAIL, PASSWORD, GENDER, "
+                + "SEXUAL_ORIENTATION, AGE, IMAGE_CONTENT, CONTENT_TYPE) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         Connection connection = new ConnectionFactory().getConnection();
         
@@ -29,7 +31,8 @@ public class UserDAO {
         stmt.setString(4, u.getGender());
         stmt.setString(5, u.getSexualOrientation());
         stmt.setInt(6, u.getAge());
-        stmt.setString(7, u.getImage_url());
+        stmt.setBytes(7, u.getImage());
+        stmt.setString(8, u.getImageType());
 
         stmt.execute();
         
@@ -38,7 +41,7 @@ public class UserDAO {
     }
     
     public User findUserByEmail(String email) throws SQLException {
-        String sql = "SELECT ID, NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE, IMAGE_URL FROM USERS WHERE EMAIL = ?";
+        String sql = "SELECT ID, NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE FROM USERS WHERE EMAIL = ?";
         
         Connection connection = new ConnectionFactory().getConnection();
         
@@ -54,9 +57,8 @@ public class UserDAO {
             String password = rs.getString("PASSWORD");
             String gender = rs.getString("GENDER");
             String sexualOrientation = rs.getString("SEXUAL_ORIENTATION");
-            String image_url = rs.getString("IMAGE_URL");
             int age = rs.getInt("AGE");
-            u = new User(id, name, email, password, gender, sexualOrientation, age, image_url);
+            u = new User(id, name, email, password, gender, sexualOrientation, age);
         }
         
         return u;
@@ -81,7 +83,7 @@ public class UserDAO {
     }
     
     public ArrayList<User> listAll() throws SQLException {
-        String sql = "SELECT ID, NAME, EMAIL, GENDER, SEXUAL_ORIENTATION, AGE, IMAGE_URL FROM USERS";
+        String sql = "SELECT ID, NAME, EMAIL, GENDER, SEXUAL_ORIENTATION, AGE FROM USERS";
         
         Connection connection = new ConnectionFactory().getConnection();
         
@@ -96,10 +98,9 @@ public class UserDAO {
             String email = rs.getString("EMAIL");
             String gender = rs.getString("GENDER");
             String sexualOrientation = rs.getString("SEXUAL_ORIENTATION");
-            String image_url = rs.getString("IMAGE_URL");
             int age = rs.getInt("AGE");
             
-            User u = new User(id, name, email, gender, sexualOrientation, age, image_url);
+            User u = new User(id, name, email, gender, sexualOrientation, age);
             users.add(u);
         }
         

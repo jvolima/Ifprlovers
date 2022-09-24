@@ -15,8 +15,28 @@ public class User {
     private String password;
     private String gender;
     private String sexualOrientation;
-    private String image_url;
     private int age;
+    private String imageType;
+    private byte[] image;
+
+    public User(String name, String email, String password, String gender, 
+            String sexualOrientation, int age, String imageType, byte[] image) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.sexualOrientation = sexualOrientation;
+        this.age = age;
+        this.imageType = imageType;
+        this.image = image;
+    }
+    
+    
+    
+    
+    
+    
+    
     
     public User(int id, String name, String email, String password, String gender, String sexualOrientation, int age, String image_url) {
         this.id = id;
@@ -26,7 +46,6 @@ public class User {
         this.gender = gender;
         this.sexualOrientation = sexualOrientation;
         this.age = age;
-        this.image_url = image_url;
     }
     
     public User(int id, String name, String email, String gender, String sexualOrientation, int age, String image_url) {
@@ -36,7 +55,6 @@ public class User {
         this.gender = gender;
         this.sexualOrientation = sexualOrientation;
         this.age = age;
-        this.image_url = image_url;
     }
     
     public User(String name, String email, String password, String gender, String sexualOrientation, int age, String image_url) {
@@ -46,7 +64,6 @@ public class User {
         this.gender = gender;
         this.sexualOrientation = sexualOrientation;
         this.age = age;
-        this.image_url = image_url;
     }
     
     public User(int id, String name, String email, String password, String gender, String sexualOrientation, int age) {
@@ -128,12 +145,24 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
-    
-    public String getImage_url() {
-        return image_url;
+
+    public String getImageType() {
+        return imageType;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+    
+    
+    
+    
 }

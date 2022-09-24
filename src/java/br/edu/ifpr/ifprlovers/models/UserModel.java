@@ -17,7 +17,7 @@ public class UserModel {
     UserDAO dao = new UserDAO();
     
     public String registerUser(User u) throws SQLException {
-        User userAlreadyExists = dao.findUserByEmail(u.getEmail());
+        User userAlreadyExists = null;
         
         if(userAlreadyExists != null) {
             return "Erro ao cadastrar novo usuário, email já está sendo usado";

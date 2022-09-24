@@ -34,7 +34,7 @@
                         <span>Se torne um lover</span>
                     </div>
                 </div>
-                <form method="post" action="UserRegisterController" id="containerForm">
+                <form method="post" action="UserRegisterController" id="containerForm" enctype="multipart/form-data">
                     <div id="containerInputs">
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="containerInput">
                             <label>Link do seu avatar</label>
-                            <input class="input" type="text" name="image_url" />
+                            <input class="input" type="file" name="image" />
                         </div>
                         <div class="containerTwoInputs containerInput">
                             <div class="biggerInput"> 
