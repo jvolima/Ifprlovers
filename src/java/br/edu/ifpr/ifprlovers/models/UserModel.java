@@ -33,6 +33,12 @@ public class UserModel {
         return u;
     }
     
+    public User findUserById(int id) throws SQLException {
+        User u = dao.findUserById(id);
+        
+        return u;
+    }
+    
     public void updateUser(User u) throws SQLException {
         dao.updateUser(u);
     }

@@ -31,8 +31,7 @@
                 <form method="post" action="SelectLoverController">  
                     <div id="loverAndPercentage">
                         <div class="loverCard">
-                            <div class="loverCardImage" style="background-image: url(${user.image_url}); background-position: center; background-size: cover">
-
+                            <div class="loverCardImage" style="background-image: url(DisplayImage?id=${user.id});background-position: center; background-size: cover">
                             </div>
                             <div class="loverCardNameAndAge">
                                 <div class="loverCardNameContainer">
@@ -49,8 +48,8 @@
                         </div>
 
                         <div class="loverCard">
-                            <div class="loverCardImage" style="background-image: url(${lover.image_url}); background-position: center; background-size: cover">
-
+                            <div class="loverCardImage" style="background-image: url(DisplayImage?id=${lover.id});background-position: center; background-size: cover">
+                                
                             </div>
                             <div class="loverCardNameAndAge">
                                 <div class="loverCardNameContainer">
@@ -75,7 +74,7 @@
                     <div id="contentLovers">
                         <c:forEach var="loverToSelect" varStatus="status" items="${lovers}">
                             <a class="loverCardSmall ${lover.email == loverToSelect.email ? "selected" : ""}" href="SelectLoverController?loverEmail=${loverToSelect.email}">
-                                <div class="loverCardImageSmall" style="background-image: url(${loverToSelect.image_url}); background-position: center; background-size: cover">
+                                <div class="loverCardImageSmall" style="background-image: url(DisplayImage?id=${loverToSelect.id}); background-position: center; background-size: cover">
                                     
                                 </div>
                                 <div class="loverCardNameAndAgeSmall">

@@ -41,7 +41,7 @@ public class UserDAO {
     }
     
     public User findUserByEmail(String email) throws SQLException {
-        String sql = "SELECT ID, NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE FROM USERS WHERE EMAIL = ?";
+        String sql = "SELECT ID, NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE, IMAGE_CONTENT, CONTENT_TYPE FROM USERS WHERE EMAIL = ?";
         
         Connection connection = new ConnectionFactory().getConnection();
         
@@ -58,7 +58,35 @@ public class UserDAO {
             String gender = rs.getString("GENDER");
             String sexualOrientation = rs.getString("SEXUAL_ORIENTATION");
             int age = rs.getInt("AGE");
-            u = new User(id, name, email, password, gender, sexualOrientation, age);
+            byte[] imageContent = rs.getBytes("IMAGE_CONTENT");
+            String contentType = rs.getString("CONTENT_TYPE");
+            u = new User(id, name, email, password, gender, sexualOrientation, age, contentType, imageContent);
+        }
+        
+        return u;
+    }
+    
+    public User findUserById(int id) throws SQLException {
+        String sql = "SELECT ID, NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE, IMAGE_CONTENT, CONTENT_TYPE FROM USERS WHERE ID = ?";
+        
+        Connection connection = new ConnectionFactory().getConnection();
+        
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+        
+        User u = null;
+        
+        if(rs.next()) {
+            String email = rs.getString("EMAIL");
+            String name = rs.getString("NAME");
+            String password = rs.getString("PASSWORD");
+            String gender = rs.getString("GENDER");
+            String sexualOrientation = rs.getString("SEXUAL_ORIENTATION");
+            int age = rs.getInt("AGE");
+            byte[] imageContent = rs.getBytes("IMAGE_CONTENT");
+            String contentType = rs.getString("CONTENT_TYPE");
+            u = new User(id, name, email, password, gender, sexualOrientation, age, contentType, imageContent);
         }
         
         return u;
@@ -83,7 +111,7 @@ public class UserDAO {
     }
     
     public ArrayList<User> listAll() throws SQLException {
-        String sql = "SELECT ID, NAME, EMAIL, GENDER, SEXUAL_ORIENTATION, AGE FROM USERS";
+        String sql = "SELECT ID, NAME, EMAIL, PASSWORD, GENDER, SEXUAL_ORIENTATION, AGE, IMAGE_CONTENT, CONTENT_TYPE FROM USERS";
         
         Connection connection = new ConnectionFactory().getConnection();
         
@@ -96,11 +124,15 @@ public class UserDAO {
             int id = rs.getInt("ID");
             String name = rs.getString("NAME");
             String email = rs.getString("EMAIL");
+            String password = rs.getString("PASSWORD");
             String gender = rs.getString("GENDER");
             String sexualOrientation = rs.getString("SEXUAL_ORIENTATION");
             int age = rs.getInt("AGE");
+            byte[] imageContent = rs.getBytes("IMAGE_CONTENT");
+            String contentType = rs.getString("CONTENT_TYPE");
             
-            User u = new User(id, name, email, gender, sexualOrientation, age);
+            User u = new User(id, name, email, password, gender, sexualOrientation, age, contentType, imageContent);
+            
             users.add(u);
         }
         
